@@ -1,0 +1,1 @@
+include librato_chart_sender/templates/*.html
