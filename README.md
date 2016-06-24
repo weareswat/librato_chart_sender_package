@@ -1,9 +1,9 @@
-## Librato Chart Sender
+## Librato Chart Sender Package
 
 It's meant to every week send the weekly report charts from librato to the people working at Rupeal
 
 # Version
--version1.0
+- version1.0
 
 # Usage
 
