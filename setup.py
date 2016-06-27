@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-setup(name='librato_chart_sender',
+setup(name='chart_sender',
       version='0.1',
       description='Rupeals library to send Librato charts via email',
       url='https://github.com/weareswat/librato_chart_sender_package',
