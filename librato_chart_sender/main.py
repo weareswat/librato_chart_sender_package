@@ -1,7 +1,5 @@
-import requests, os
-from lib.snapshot_maker import LibratoSnapshotMaker
-from lib.email_maker import HTMLEmailMaker
-from lib.key_manager import ApiKeyManager
+import requests
+from lib import LibratoSnapshotMaker, HTMLEmailMaker, ApiKeyManager
 
 class LibratoChartSender():
 

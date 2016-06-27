@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(name='librato_chart_sender',
       version='0.1',
@@ -7,7 +7,7 @@ setup(name='librato_chart_sender',
       author='Goncalo Correia / Pawel Krysiak / SWAT - Rupeal',
       author_email='swat@weareswat.com',
       license='MIT',
-      packages=['librato_chart_sender'],
+      packages=find_packages(),
       install_requires=[
             'jinja2',
             'requests'
