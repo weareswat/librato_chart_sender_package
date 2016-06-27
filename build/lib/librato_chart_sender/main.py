@@ -1,11 +1,9 @@
-import requests
+import requests, os
 from lib.snapshot_maker import LibratoSnapshotMaker
 from lib.email_maker import HTMLEmailMaker
 from lib.key_manager import ApiKeyManager
 
 class LibratoChartSender():
-
-	TEST_EMAIL_FILE_NAME = "templates/email_template.html"
 
 	def __init__(self, librato_chart_ids, recipients_list, api_keys = { 'librato_api_key': '', 'mailgun_api_key' : '' }):
 		self.librato_chart_ids = librato_chart_ids
@@ -33,7 +31,7 @@ class LibratoChartSender():
 	def run(self, test_run=False):
 		librato_key = self.key_manager.get_key('librato')
 		shapshot_maker = LibratoSnapshotMaker("604800", "systems@rupeal.com", librato_key)
-		html_email_maker = HTMLEmailMaker(self.TEST_EMAIL_FILE_NAME)
+		html_email_maker = HTMLEmailMaker()
 
 		snapshot_urls = []
 		for chart_id in self.librato_chart_ids:
@@ -48,13 +46,6 @@ class LibratoChartSender():
 			self.send_simple_message('Librato Weekly Report', email_body)
 			print "E-mail sent succesfully"
 		
-
-# chart_sender = LibratoChartSender(
-# 	[3419, 3420, 3421],
-# 	['pawel.krysiak@rupeal.com'],
-# 	{
-# 		'librato_api_key' : 'b4bf0341c8cdd3b429826a18d1a07582895fa12c7fb97eb8f2c6bdb015004b86',
-# 		'mailgun_api_key' : 'key-a05af654983f6c57ec99904a3b84c7b3'
-# 	}
-# )
+#
+# chart_sender = LibratoChartSender( [3419, 3420, 3421], ['pawel.krysiak@rupeal.com'], {'librato_api_key' : 'b4bf0341c8cdd3b429826a18d1a07582895fa12c7fb97eb8f2c6bdb015004b86', 'mailgun_api_key' : 'key-a05af654983f6c57ec99904a3b84c7b3' })
 # chart_sender.run()

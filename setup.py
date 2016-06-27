@@ -10,11 +10,7 @@ setup(name='librato_chart_sender',
       packages=['librato_chart_sender'],
       install_requires=[
             'jinja2',
-            'requests',
-            'json'
+            'requests'
       ],
-      # dependency_links=[
-      #     'https://github.com/weareswat/librato-chart-sender'
-      # ],
       zip_safe=False,
       include_package_data=True)

@@ -1,10 +1,12 @@
 from jinja2 import Template
+import os
+
 class HTMLEmailMaker():
 
-	def __init__(self, html_file):
-		self.file = html_file
+    TEMPLATE_DIR_NAME = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'templates')
+    TEMPLATE_NAME = 'email_template.html'
 
-	def insert_snapshots(self, snapshot_urls):
-		read_html_file = open(self.file, "r").read()
-		template = Template(read_html_file)
-		return template.render(charts = snapshot_urls)
+    def insert_snapshots(self, snapshot_urls):
+        read_html_file = open(os.path.join(self.TEMPLATE_DIR_NAME, self.TEMPLATE_NAME), "r").read()
+        template = Template(read_html_file)
+        return template.render(charts = snapshot_urls)
