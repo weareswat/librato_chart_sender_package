@@ -14,17 +14,34 @@ You will need the last number (3419), and you need to put it on the LibratoChart
 
 ###### sample code:
 ```
-chart_sender = LibratoChartSender( [3419, 3420, 3421], ['sampleemail@sample.com'], {'librato_api_key' : '<librato api_key>', 'mailgun_api_key' : '<mailgun api_key>' })
+chart_sender = LibratoChartSender('systems@rupeal.com, 604800, [3419, 3420, 3421], ['sampleemail@sample.com'], {'librato_api_key' : '<librato api_key>', 'mailgun_api_key' : '<mailgun api_key>' })
 
 [3419, 3420, 3421]-> are the charts we will choose
 ``` 
 
+### Set the librato username/email
+Just write on the LibratoChartSender object call as the first parameter
+###### sample code:
+```
+chart_sender = LibratoChartSender('systems@rupeal.com, 604800, [3419, 3420, 3421], ['sampleemail@sample.com'], {'librato_api_key' : '<librato api_key>', 'mailgun_api_key' : '<mailgun api_key>' })
 
-### Email the people you want
+'systems@rupeal.com'-> Librato account email
+``` 
+
+### Set the charts duration
 Just write on the LibratoChartSender object call as the second parameter
 ###### sample code:
 ```
-chart_sender = LibratoChartSender( [3419, 3420, 3421], ['sampleemail@sample.com'], {'librato_api_key' : '<librato api_key>', 'mailgun_api_key' : '<mailgun api_key>' })
+chart_sender = LibratoChartSender('systems@rupeal.com, 604800, [3419, 3420, 3421], ['sampleemail@sample.com'], {'librato_api_key' : '<librato api_key>', 'mailgun_api_key' : '<mailgun api_key>' })
+
+604800-> Chart duration
+``` 
+
+### Email the people you want
+Just write on the LibratoChartSender object call as the third parameter
+###### sample code:
+```
+chart_sender = LibratoChartSender('systems@rupeal.com, 604800, [3419, 3420, 3421], ['sampleemail@sample.com'], {'librato_api_key' : '<librato api_key>', 'mailgun_api_key' : '<mailgun api_key>' })
 
 ['sampleemail@sample.com']-> Are the emails that will recieve report
 ``` 
@@ -51,7 +68,7 @@ self.send_simple_message('Librato Weekly Report', email_body, api_key)
 On the LibratoChartSender class just change the parameters of the api_keys
 ###### sample code:
 ```
-chart_sender = LibratoChartSender( [3419, 3420, 3421], ['sampleemail@sample.com'], {'librato_api_key' : '<librato api_key>', 'mailgun_api_key' : '<mailgun api_key>' })
+chart_sender = LibratoChartSender('systems@rupeal.com, 604800, [3419, 3420, 3421], ['sampleemail@sample.com'], {'librato_api_key' : '<librato api_key>', 'mailgun_api_key' : '<mailgun api_key>' })
 
 <librato api_key>, <mailgun api_key> -> This fields correspond to proper api_keys from the mailgun and librato accounts
 ``` 
@@ -61,7 +78,7 @@ chart_sender = LibratoChartSender( [3419, 3420, 3421], ['sampleemail@sample.com'
 # Test run option
 If you want to test the email before you send something wrong to everybody (including the boss ;)) You should use this option to make sure that your email looks like you think it look.
 ```
-chart_sender = LibratoChartSender([3419, 3420], ['pawel.krysiak@rupeal.com'])
+chart_sender = LibratoChartSender('systems@rupeal.com, 604800, [3419, 3420, 3421], ['sampleemail@sample.com'], {'librato_api_key' : '<librato api_key>', 'mailgun_api_key' : '<mailgun api_key>' })
 chart_sender.run(True) #-> test run ( produces html file )
 chart_sender.run() #-> normal run ( sends an email )
 ```
