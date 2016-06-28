@@ -3,7 +3,9 @@ from lib import LibratoSnapshotMaker, HTMLEmailMaker, ApiKeyManager
 
 class LibratoChartSender():
 
-	def __init__(self, librato_chart_ids, recipients_list, api_keys = { 'librato_api_key': '', 'mailgun_api_key' : '' }):
+	def __init__(self, librato_user, duration, librato_chart_ids, recipients_list, api_keys = { 'librato_api_key': '', 'mailgun_api_key' : '' }):
+		self.librato_user = librato_user
+		self.duration = duration
 		self.librato_chart_ids = librato_chart_ids
 		self.recipients_list = recipients_list
 		self.key_manager = ApiKeyManager()
@@ -28,7 +30,7 @@ class LibratoChartSender():
 
 	def run(self, test_run=False):
 		librato_key = self.key_manager.get_key('librato')
-		shapshot_maker = LibratoSnapshotMaker("604800", "systems@rupeal.com", librato_key)
+		shapshot_maker = LibratoSnapshotMaker(self.duration, self.librato_user, librato_key)
 		html_email_maker = HTMLEmailMaker()
 
 		snapshot_urls = []
