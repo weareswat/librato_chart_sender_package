@@ -3,7 +3,7 @@
 It's meant to every week send the weekly report charts from librato to the people working at Rupeal
 
 # Version
--version1.0
+-version 0.3
 
 # Usage
 
