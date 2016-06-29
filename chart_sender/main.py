@@ -3,7 +3,7 @@ from lib import LibratoSnapshotMaker, HTMLEmailMaker, ApiKeyManager
 
 class LibratoChartSender():
 
-	def __init__(self, librato_user, duration, librato_chart_ids, recipients_list, api_keys = { 'librato_api_key': '', 'mailgun_api_key' : '' }):
+	def __init__(self, librato_user, duration, librato_chart_ids=[], recipients_list=[], api_keys = { 'librato_api_key': '', 'mailgun_api_key' : '' }):
 		self.librato_user = librato_user
 		self.duration = duration
 		self.librato_chart_ids = librato_chart_ids
@@ -43,9 +43,5 @@ class LibratoChartSender():
 			self.save_html("test_email.html", email_body)
 			print "Test email file saved succesfully."
 		else:
-			self.send_simple_message('Librato Weekly Report', email_body)
+			self.send_simple_message('Librato Chart Report', email_body)
 			print "E-mail sent succesfully"
-		
-#
-# chart_sender = LibratoChartSender('systems@rupeal.com, 604800, [3419, 3420, 3421], ['pawel.krysiak@rupeal.com'], {'librato_api_key' : 'b4bf0341c8cdd3b429826a18d1a07582895fa12c7fb97eb8f2c6bdb015004b86', 'mailgun_api_key' : 'key-a05af654983f6c57ec99904a3b84c7b3' })
-# chart_sender.run()

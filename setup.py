@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='chart_sender',
-      version='0.2',
+      version='0.3',
       description='Rupeals library to send Librato charts via email',
       url='https://github.com/weareswat/librato_chart_sender_package',
       author='Goncalo Correia / Pawel Krysiak / SWAT - Rupeal',
