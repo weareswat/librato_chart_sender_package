@@ -10,7 +10,10 @@ setup(name='chart_sender',
       packages=find_packages(),
       install_requires=[
             'jinja2',
-            'requests'
+            'requests',
+            'unittest2'
       ],
       zip_safe=False,
-      include_package_data=True)
+      include_package_data=True,
+      test_suite='nose.collector',
+      tests_require=['nose'],)
