@@ -16,5 +16,4 @@ class ApiKeyManagerTests(TestCase):
         key_manager = ApiKeyManager()
         librato_key, mailgun_key = '123254tqrafedws-librato', 'key-bsef31vsf3qe'
         key_manager.set_keys(librato_key, mailgun_key)
-
         self.assertRaises(UnknownKeyError, key_manager.get_key, 'unknown_key')
