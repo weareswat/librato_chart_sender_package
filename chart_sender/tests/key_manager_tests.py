@@ -1,5 +1,5 @@
 from unittest2 import TestCase
-from chart_sender.lib.key_manager import ApiKeyManager
+from chart_sender.lib.key_manager import ApiKeyManager, UnknownKeyError
 
 
 class ApiKeyManagerTests(TestCase):
@@ -17,4 +17,4 @@ class ApiKeyManagerTests(TestCase):
         librato_key, mailgun_key = '123254tqrafedws-librato', 'key-bsef31vsf3qe'
         key_manager.set_keys(librato_key, mailgun_key)
 
-        self.assertEqual(key_manager.get_key('unknown_key'), None)
+        self.assertRaises(UnknownKeyError, key_manager.get_key, 'unknown_key')

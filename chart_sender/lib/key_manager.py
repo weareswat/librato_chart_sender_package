@@ -1,5 +1,8 @@
 import sys
 
+class UnknownKeyError(Exception):
+    pass
+
 class ApiKeyManager():
     def __init__(self):
         self.mailgun_key = None
