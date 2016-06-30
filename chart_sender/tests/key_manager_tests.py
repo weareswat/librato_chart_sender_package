@@ -17,3 +17,15 @@ class ApiKeyManagerTests(TestCase):
         librato_key, mailgun_key = '123254tqrafedws-librato', 'key-bsef31vsf3qe'
         key_manager.set_keys(librato_key, mailgun_key)
         self.assertRaises(UnknownKeyError, key_manager.get_key, 'unknown_key')
+
+    def test_empty_key(self):
+        key_manager = ApiKeyManager()
+        librato_key, mailgun_key = '123254tqrafedws-librato', 'key-bsef31vsf3qe'
+        key_manager.set_keys(librato_key, mailgun_key)
+
+        librato_key_not_empty =  True if key_manager.librato_key != "" else False
+
+        mailgun_key_not_empty = True if key_manager.mailgun_key != "" else False
+
+        self.assertTrue(librato_key_not_empty)
+        self.assertTrue(mailgun_key_not_empty)
