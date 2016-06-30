@@ -16,7 +16,7 @@ class ApiKeyManager():
             else:
                 return "{key_name} key is empty. Exiting".format(file_name=key_name)
                 sys.exit()
-        except:
+        except AttributeError:
             raise UnknownKeyError('key_name doesn\'t exist')
 
     def set_keys(self, librato_key, mailgun_key):
